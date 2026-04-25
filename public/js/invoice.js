@@ -91,3 +91,20 @@ const Invoice = {
           <strong style="font-size:16px;color:#1e7e4e;">মোট = ৳${total}</strong>
         </div>
         ${notes ? `<p style="font-size:12px;color:#666;margin-top:8px;">নোট: ${notes}</p>` : ''}
+      </div>
+    `;
+  },
+
+  print() {
+    const content = document.getElementById('printable-invoice');
+    if (!content) return;
+    const w = window.open('', '_blank');
+    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+      <style>body{font-family:'Hind Siliguri',sans-serif;padding:20px;} @media print{body{padding:0;}}</style>
+      </head><body>${content.outerHTML}
+      <script>window.onload=function(){window.print();window.close();}<\/script>
+      </body></html>`);
+    w.document.close();
+  }
+};

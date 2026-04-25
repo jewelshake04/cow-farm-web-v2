@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>গরুর খামার ম্যানেজমেন্ট</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  /* Hide electron-only window controls */
+  .titlebar .window-controls { display: none !important; }
+  .titlebar { -webkit-app-region: unset !important; cursor: default !important; }
+  body { font-family: 'Hind Siliguri', sans-serif; }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <span>🐄</span>
+        <div class="sidebar-logo-text">
+          <h2 id="farm-name-sidebar">গরুর খামার</h2>
+          <p>ম্যানেজমেন্ট সিস্টেম</p>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">প্রধান</div>
+      <div class="nav-item active" data-page="dashboard"><span class="icon">📊</span> ড্যাশবোর্ড</div>
+      <div class="nav-section">গরু ব্যবস্থাপনা</div>
+      <div class="nav-item" data-page="cows"><span class="icon">🐄</span> গরুর তালিকা</div>
+      <div class="nav-item" data-page="milk"><span class="icon">🥛</span> দুধ ট্র্যাকিং</div>
+      <div class="nav-item" data-page="health"><span class="icon">💉</span> স্বাস্থ্য ও চিকিৎসা</div>
+      <div class="nav-item" data-page="breeding"><span class="icon">🐣</span> প্রজনন ও বাছুর</div>
+      <div class="nav-section">হিসাব</div>
+      <div class="nav-item" data-page="accounting"><span class="icon">📒</span> হিসাব খাতা</div>
+      <div class="nav-item" data-page="parties"><span class="icon">👥</span> পার্টি / লেজার</div>
+      <div class="nav-item" data-page="invoice"><span class="icon">🧾</span> ইনভয়েস</div>
+      <div class="nav-section">রিপোর্ট</div>
+      <div class="nav-item" data-page="reports"><span class="icon">📈</span> রিপোর্ট</div>
+      <div class="nav-section">সেটিংস</div>
+      <div class="nav-item" data-page="settings"><span class="icon">⚙️</span> সেটিংস</div>
+      <div class="nav-item" data-page="backup"><span class="icon">💾</span> ব্যাকআপ</div>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn-logout" onclick="App.logout()">🚪 লগআউট</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="titlebar">
+      <span class="titlebar-title" id="page-title">ড্যাশবোর্ড</span>
+      <div class="window-controls"></div>
+    </div>
+    <div class="content" id="page-content"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" style="position:fixed;bottom:24px;right:24px;z-index:9999;display:none;">
+  <div id="toast-msg" style="background:#333;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-width:320px;font-family:'Hind Siliguri',sans-serif;"></div>
+</div>
+
+<script src="/js/api-bridge.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/dashboard.js"></script>
+<script src="/js/cows.js"></script>
+<script src="/js/milk.js"></script>
+<script src="/js/accounting.js"></script>
+<script src="/js/parties.js"></script>
+<script src="/js/health.js"></script>
+<script src="/js/breeding.js"></script>
+<script src="/js/invoice.js"></script>
+<script src="/js/reports.js"></script>
+<script src="/js/settings.js"></script>
+<script src="/js/backup.js"></script>
+</body>
+</html>
